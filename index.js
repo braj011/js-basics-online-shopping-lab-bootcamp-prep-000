@@ -21,7 +21,7 @@ function addToCart(name) {    // name is the name of the item i.e. string
   
   var price = Math.floor(Math.random() * 100);
   var itemObject = {
-  "itemName": name,      // need to write the keys as strings - else will think it's a variable
+  "itemName": name,      // need to write the keys as strings -                         else will think it's a variable
   "itemPrice": price
   } 
   cart.push(itemObject); 
@@ -35,12 +35,12 @@ function viewCart() {
   } else if (cart.length === 1) {
     return `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}.`; 
   } 
-  let itemsAndPrices = [];    
+  let itemsAndPrices = [];            // 1 
   
   for (let i = 0; i < cart.length - 1; i++) {
     itemsAndPrices.push(`${getCart()[i].itemName} at $${getCart()[i].itemPrice}`);
   }
-  return `In your cart, you have ${itemsAndPrices.join(', ')}, and ${getCart()[cart.length - 1].itemName} at $${getCart()[cart.length - 1].itemPrice}.`
+  return `In your cart, you have ${itemsAndPrices.join(', ')}, and ${getCart()[cart.length - 1].itemName} at $${getCart()[cart.length - 1].itemPrice}.`       // 2, 3 and 4
 }  
 
 viewCart();
@@ -95,7 +95,9 @@ function placeOrder(cardNumber) {
   }
   else {
   let varTot = total();   // 1 
-  cart.splice(0,cart.length);  // 2 
+  cart.splice(0);      // 
+          // cart = [];  // alt 1. to empty cart
+          // cart.splice(0,cart.length);    alt 2. to empty cart
   return `Your total cost is $${varTot}, which will be charged to the card ${cardNumber}.`;
   } 
 }       
